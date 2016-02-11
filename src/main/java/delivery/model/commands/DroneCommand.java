@@ -49,7 +49,7 @@ class LoadCommand extends DroneCommand {
 
     @Override
     public String toString() {
-        return String.format("{0} {0} {0} {0} {0}", drone.id, L, warehouse.id, productType.id, quanity);
+        return String.format("%d %s %d %d %d", drone.id, L, warehouse.id, productType.id, quanity);
     }
 }
 
@@ -82,7 +82,7 @@ class DeliverCommand extends  DroneCommand {
 
     @Override
     public String toString() {
-        return String.format("{0} {0} {0} {0} {0}", drone.id, D, order.id, productType.id, quanity);
+        return String.format("%d %s %d %d %d", drone.id, D, order.id, productType.id, quanity);
     }
 }
 
@@ -109,7 +109,7 @@ class UnloadCommand extends  DroneCommand {
 
     @Override
     public String toString() {
-        return String.format("{0} {0} {0} {0} {0}", drone.id, U, warehouse.id, productType.id, quanity);
+        return String.format("%d %s %d %d %d", drone.id, U, warehouse.id, productType.id, quanity);
     }
 }
 
@@ -132,7 +132,7 @@ class WaitCommand extends DroneCommand {
 
     @Override
     public String toString() {
-        return String.format("{0} {0} {0}", drone.id, W, numberOfTurns);
+        return String.format("%d %s %d", drone.id, W, numberOfTurns);
     }
 }
 
