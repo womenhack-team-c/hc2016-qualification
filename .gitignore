@@ -1,4 +1,3 @@
-
 # Created by https://www.gitignore.io/api/java,osx,windows
 
 ### Java ###
@@ -64,3 +63,4 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+.idea
