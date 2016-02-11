@@ -1,16 +1,15 @@
 package delivery;
 
 
-import delivery.model.DeliveryMap;
-import delivery.model.Drone;
-import delivery.model.Order;
-import delivery.model.Warehouse;
+import delivery.model.*;
 import delivery.model.commands.DroneCommand;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import static delivery.model.commands.DroneCommand.deliver;
+import static delivery.model.commands.DroneCommand.load;
 
 public class DroneRouter {
     private final DeliveryMap map;
@@ -35,8 +34,19 @@ public class DroneRouter {
 
         orders.forEach( order -> {
             Drone drone = drones.get(0);
+            Warehouse warehouse = warehouses.get(0);
 
-            commands.add(deliver());
+            order.items.entrySet().forEach( entry -> {
+                ProductType productType = entry.getKey();
+                Integer quantity = entry.getValue();
+                commands.add(load(drone, warehouse, productType, quantity ));
+            });
+
+            order.items.entrySet().forEach( entry -> {
+                ProductType productType = entry.getKey();
+                Integer quantity = entry.getValue();
+                commands.add(deliver(drone, order, productType, quantity ));
+            });
         });
 
         return commands;
