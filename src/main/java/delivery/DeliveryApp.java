@@ -1,5 +1,6 @@
 package delivery;
 
+import delivery.model.DeliveryMap;
 import delivery.model.Drone;
 import delivery.model.Order;
 import delivery.model.Warehouse;
@@ -23,7 +24,9 @@ public class DeliveryApp {
 
 
 
-    public List<DroneCommand> findSolution(List<Warehouse> warehouses, List<Drone> drones, List<Order> orders) {
-
+    public List<DroneCommand> findSolution(DeliveryMap map, List<Warehouse> warehouses, List<Drone> drones, List<Order> orders) {
+        DroneRouter droneRouter = new DroneRouter(map, warehouses, drones, orders);
+        List<DroneCommand> droneCommands = droneRouter.calculate();
+        return droneCommands;
     }
 }
