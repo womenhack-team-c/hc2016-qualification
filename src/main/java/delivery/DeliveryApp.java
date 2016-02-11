@@ -1,6 +1,13 @@
 package delivery;
 
 import java.io.*;
+import delivery.model.DeliveryMap;
+import delivery.model.Drone;
+import delivery.model.Order;
+import delivery.model.Warehouse;
+import delivery.model.commands.DroneCommand;
+import java.util.List;
+
 
 public class DeliveryApp {
     static String input = "src/main/resources/busy_day.in";
@@ -48,5 +55,11 @@ public class DeliveryApp {
 //        return inputFile = br.readLine();
 //
 //    }
+
+    public List<DroneCommand> findSolution(DeliveryMap map, List<Warehouse> warehouses, List<Drone> drones, List<Order> orders) {
+        DroneRouter droneRouter = new DroneRouter(map, warehouses, drones, orders);
+        List<DroneCommand> droneCommands = droneRouter.calculate();
+        return droneCommands;
+    }
 
 }
