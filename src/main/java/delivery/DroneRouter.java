@@ -17,7 +17,7 @@ public class DroneRouter {
     private final List<Drone> drones;
     private final List<Order> orders;
 
-    public DroneRouter(DeliveryMap map, List<Warehouse> warehouses, List<Drone> drones, List<Order> orders) {
+    public DroneRouter(DeliveryMap map, List<Warehouse> warehouses, List<Drone> drones, List<Order> orders, int deadline) {
         this.map = map;
         this.warehouses = warehouses;
         this.drones = drones;
